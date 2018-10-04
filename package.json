@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/timac11/ttMessangerFrontendApp#readme",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.4",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2"
   }
