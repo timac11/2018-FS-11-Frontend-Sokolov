@@ -1,0 +1,23 @@
+{
+  "name": "messanger-application",
+  "version": "1.0.0",
+  "description": "frontend application tt FS-11",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timac11/ttMessangerFrontendApp.git"
+  },
+  "author": "timac11",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/timac11/ttMessangerFrontendApp/issues"
+  },
+  "homepage": "https://github.com/timac11/ttMessangerFrontendApp#readme",
+  "devDependencies": {
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  }
+}
