@@ -1,5 +1,4 @@
 const say = function (name) {
-
     const divElement = document.createElement('div');
     divElement.className = 'hello-class-div-element';
     const spanElement = document.createElement('span');
