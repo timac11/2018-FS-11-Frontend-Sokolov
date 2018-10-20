@@ -1,3 +1,7 @@
+html {
+    font-size: 10px;
+}
+
 div {
     display: flex;
     flex-direction: row;
@@ -17,26 +21,61 @@ html {
 
 .header {
     flex: 1 1;
-    background-color: blueviolet;
+    padding: 0.8em;
+    background-color: #8e24aa;
     justify-content: space-between;
 }
 
 .header > .buttons-wrapper {
     align-items: stretch;
     justify-content: flex-end;
-    padding: 8px;
+}
+
+.name-wrapper {
+
+}
+
+.user-info-wrapper {
+    flex-direction: column;
+    color: white !important;
+    font-family: sans-serif;
+    font-size: 1.4em;
+    justify-content: center;
+    flex: 7 1;
+}
+
+.user-online-info {
+    color: #99ffffff;
+    font-size: 1em;
+    margin-top: 0.4em;
+}
+
+.user-img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.user-img-wrapper {
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 .buttons-wrapper > button {
-    margin-right: 8px;
+    margin-right: 0.8em;
 }
 
 button {
-    border-radius: 2px;
-    border: white 1px solid;
-    background-color: transparent;
+    border: none;
+    background: transparent no-repeat center center;
     color: white;
     width: 64px;
+}
+
+button:hover,
+button:focus {
+    border: none;
 }
 
 .active-window-body {
@@ -45,7 +84,7 @@ button {
 }
 
 .footer {
-    flex: 2 1;
+    flex: 1 1;
     background-color: white;
 }
 

@@ -1,0 +1,12 @@
+.arrow-back-icon {
+    background-image: url("./../../../resources/svg/arrow_back_24_px.svg");
+}
+
+.filled-icon {
+    background-image: url("./../../../resources/svg/filled.svg");
+    transform: rotate(90deg);
+}
+
+.actions-icon {
+    background-image: url("./../../../resources/svg/more_vert_24_px.svg");
+}
