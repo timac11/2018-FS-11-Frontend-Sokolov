@@ -76,6 +76,7 @@ button {
 button:hover,
 button:focus {
     border: none;
+    outline-color: transparent;
 }
 
 .active-window-body {
