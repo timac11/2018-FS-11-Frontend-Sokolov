@@ -1,0 +1,11 @@
+div {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1;
+}
+
+.active-window-body {
+    flex: 1 1;
+    background-color: lightgray;
+}
+
