@@ -11,8 +11,12 @@ div {
 body {
     display: flex;
     flex-direction: column;
-    height: 100%;
     align-items: stretch;
+    padding: 0;
+    margin: 0;
+    flex-basis: 50px;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
 }
 
 html {
@@ -23,6 +27,7 @@ messages-wrapper {
     display: flex;
     flex-direction: row;
     flex: 7 1;
+    overflow-y: auto;
 }
 
 message-textarea {

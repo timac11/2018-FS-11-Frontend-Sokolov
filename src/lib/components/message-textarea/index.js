@@ -31,9 +31,15 @@ class MessageTextarea extends HTMLElement {
     }
 
     _onKeyPress(event) {
-        console.log('button clicked!')
+        this.dispatchEvent(new CustomEvent('messagesended', {
+            detail: {
+                message: this._elements.textarea.value
+            }
+        }));
         this._elements.button.dispatchEvent(new Event('messagesended'));
     }
 }
 
 customElements.define('message-textarea', MessageTextarea);
+
+export default MessageTextarea;

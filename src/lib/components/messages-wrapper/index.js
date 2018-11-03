@@ -14,7 +14,7 @@ class MessagesWrapper extends HTMLElement {
         this._addHandlers();
     }
 
-    _initElements () {
+    _initElements() {
         const body = this.shadowRoot.querySelector('.active-window-body');
         this._elements = {
             body: body
@@ -22,13 +22,18 @@ class MessagesWrapper extends HTMLElement {
     }
 
     _addHandlers() {
-        this._elements.body.addEventListener('messagesended', this._addMessage.bind(this))
+        //this._elements.body.addEventListener('messagesended', this._addMessage.bind(this));
+        //this.addEventListener('messagesended', this._addMessage.bind(this))
     }
 
-    _addMessage() {
-        console.log('message sended')
+    addMessage(message) {
+        const messageElement = document.createElement('div');
+        messageElement.innerHTML = message;
+        messageElement.className = 'sended-body-message';
+        this._elements.body.appendChild(messageElement);
     }
 }
 
 customElements.define('messages-wrapper', MessagesWrapper);
 
+export  default MessagesWrapper;
