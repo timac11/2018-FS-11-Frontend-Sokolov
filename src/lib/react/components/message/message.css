@@ -1,0 +1,14 @@
+.sended-body-message {
+    font-size: 16px;
+    font-family: sans-serif;
+    text-align: end;
+    float: right;
+    padding: 12px;
+    border: 1px solid rgba(0,0,0,0.25);
+    margin: 4px 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    border-radius: 3px;
+    background: #f3e5f5;
+    align-self: flex-end;
+    flex-grow: 0;
+}

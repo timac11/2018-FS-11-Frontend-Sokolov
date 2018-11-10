@@ -1,0 +1,17 @@
+.active-window-body {
+    display: inline-flex;
+    background-color: lightgray;
+    justify-content: flex-end;
+    overflow: auto;
+    flex-flow: column;
+    -webkit-flex: 1 1 auto;
+    align-items: flex-end;
+    min-height: min-content;
+}
+
+.messages-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex: 7 1;
+    overflow-y: auto;
+}

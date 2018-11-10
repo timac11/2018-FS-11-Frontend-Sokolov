@@ -12,24 +12,26 @@ module.exports = {
     module: {                                    //webpack understand only js and json files,
 	    rules: [                                 //for .css files you should add loader
 	        {
-	            test: /\.js$/,
-                use: {
-                    loader: 'babel-loader'
-                },
-                include: sourceRoot,
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: ['babel-loader']
             },
             {
-                test: /shadow\.css$/,            //only by pattern is it possible incapsulate styles?
-                include: sourceRoot,
-                use: {
-                    loader: 'css-loader'
-                }
+                test: /\.css$/,
+                loader: 'style-loader'
+            }, {
+                test: /\.css$/,
+                loader: 'css-loader',
+                /*query: {
+                    modules: true,
+                    localIdentName: '[name]__[local]___[hash:base64:5]'
+                }*/
             },
-            {
+            /*{
                 test: /index\.css$/,
                 include: sourceRoot,
                 use: ExtractTextPlugin.extract('css-loader')
-            },
+            },*/
             {
                 test: /\.(png|jp(e*)g|svg)$/,
                 use: {
@@ -37,6 +39,12 @@ module.exports = {
                 }
             }
         ],
+    },
+    resolve: {
+        extensions: ['*', '.js', '.jsx']
+    },
+    devServer: {
+        contentBase: './dist'
     },
     plugins: [
         new ExtractTextPlugin({
