@@ -11,6 +11,7 @@
 .header > .buttons-wrapper {
     align-items: stretch;
     justify-content: flex-end;
+    flex-direction: row;
 }
 
 .user-info-wrapper {
@@ -45,6 +46,7 @@ button {
     background: transparent no-repeat center center;
     color: white;
     width: 64px;
+    height: 64px;
 }
 
 button:hover,
@@ -53,19 +55,19 @@ button:focus {
     outline-color: transparent;
 }
 
-/*.arrow-back-icon {
-    background-image: url("../resources/svg/arrow_back_24_px.svg");
-}*/
+.arrow-back-icon {
+    background-image: url("../../../../resources/svg/arrow_back_24_px.svg");
+}
 
 .buttons-wrapper > button {
     margin-right: 0.8em;
 }
 
-/*.filled-icon {
-    background-image: url("../resources/svg/filled.svg");
+.filled-icon {
+    background-image: url("../../../../resources/svg/filled.svg");
     transform: rotate(90deg);
 }
 
 .actions-icon {
-    background-image: url("../resources/svg/more_vert_24_px.svg");
-}*/
+    background-image: url("../../../../resources/svg/more_vert_24_px.svg");
+}

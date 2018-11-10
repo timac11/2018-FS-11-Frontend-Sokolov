@@ -34,11 +34,14 @@ class MessageTextArea extends Component {
         const text = this.state.textAreaValue;
         const message = this.createTextMessage(text);
 
-        this.props.sendButtonCallback(message);
+        if (text !== '') {
 
-        this.setState({
-            textAreaValue: ''
-        });
+            this.props.sendButtonCallback(message);
+
+            this.setState({
+                textAreaValue: ''
+            });
+        }
     }
 
     createTextMessage(text) {
