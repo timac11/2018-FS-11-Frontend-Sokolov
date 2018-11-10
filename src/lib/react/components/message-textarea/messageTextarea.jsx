@@ -20,8 +20,12 @@ class MessageTextArea extends Component {
                           placeholder="Message"
                           onChange={this.handleTextAreaChange.bind(this)}
                 />
-                <button className="send-button" onClick={this.sendButtonClick.bind(this)}>Send</button>
-                <FileInput/>
+                <button className="send-button"
+                        onClick={this.sendButtonClick.bind(this)}>Send
+                </button>
+                <FileInput
+                    fileUploadButtonCallback={this.props.sendButtonCallback}
+                />
             </div>
         )
     }
