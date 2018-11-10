@@ -20,7 +20,8 @@ class FileInput extends Component {
         const file = e.target.files[0];
         if (file) {
             this.props.fileUploadButtonCallback({
-                file: file
+                file: file,
+                size: file.size
             })
         }
     }

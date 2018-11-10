@@ -10,10 +10,10 @@ const getReadableSize = function (size) {
     let val;
     size = parseInt(size);
     if (size) {
-        val = size + bytes;
+        val = size + ' ' + bytes;
         constants.forEach(function (value, key) {
             if (Math.floor(size / value) > 0) {
-                val = Math.floor(size / value) + key;
+                val = Math.floor(size / value) + ' ' + key;
             }
         });
         return val;

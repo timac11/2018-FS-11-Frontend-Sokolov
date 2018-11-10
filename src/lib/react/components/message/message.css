@@ -12,3 +12,21 @@
     align-self: flex-end;
     flex-grow: 0;
 }
+
+.message-info-block {
+    display: block;
+    margin-top: 6px;
+}
+
+.file-size {
+    float: left;
+    font-size: 10px;
+    color: #8e24aa;
+    margin-right: 16px;
+}
+
+.message-time {
+    float: right;
+    font-size: 10px;
+    color: #8e24aa;
+}

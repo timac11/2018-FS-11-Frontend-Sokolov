@@ -1,17 +1,20 @@
 import React from 'react';
 import './message.css';
+import './../../../utils/readable-size-util'
+import {getReadableSize} from "../../../utils/readable-size-util";
 
 const Message = (props) => {
     return (
         <div className='sended-body-message'>
             {createMessageContent.bind(this)(props.message)}
+            {createInfoContent.bind(this)(props.message)}
         </div>
     )
 }
 
 const TextMessage = (props) => {
     return (
-        <span>{props.text}</span>
+        <div>{props.text}</div>
     )
 }
 
@@ -25,6 +28,29 @@ const ImageMessage = (props) => {
     return (
         <img src={props.imagePath}/>
     )
+}
+
+const createInfoContent = (message) => {
+    const time = [
+        new Date().getHours(),
+        new Date().getMinutes()
+    ].map(num => num < 10 ? '0' + num : num).join(':');
+
+    if (message.file) {
+        const size = getReadableSize(message.size);
+        return (
+            <div className='message-info-block'>
+                <span className='file-size'>{size}</span>
+                <span className='message-time'>{time}</span>
+            </div>
+        )
+    } else {
+        return (
+            <div className='message-info-block'>
+                <span className='message-time'>{time}</span>
+            </div>
+        )
+    }
 }
 
 const createMessageContent = (message) => {
