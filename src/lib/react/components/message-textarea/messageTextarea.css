@@ -1,0 +1,17 @@
+.message-textarea {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1;
+    background: white;
+    overflow-x: hidden;
+    min-height: 64px;
+    max-height: 64px;
+}
+
+.textarea {
+    flex: 1 1;
+}
+
+.send-button {
+    color: black;
+}

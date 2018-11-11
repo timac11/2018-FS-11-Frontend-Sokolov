@@ -1,3 +1,10 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import App from './App';
 import './index.css';
-import MessageTextarea from '../lib/components/message-textarea';
-import MessageWrapper from '../lib/components/messages-wrapper'
+
+ReactDOM.render(
+    <App />,
+    document.getElementById('app')
+);

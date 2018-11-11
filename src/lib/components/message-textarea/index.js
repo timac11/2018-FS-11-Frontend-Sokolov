@@ -1,11 +1,11 @@
 import shadow from './shadow.css';
+import FileInput from   './file-input'
 
 const template = `
         <style>${shadow.toString()}</style>
-        <div class="footer">
             <textarea class="textarea" placeholder="Message"></textarea>
             <button>Send</button>
-        </div>
+            <file-input></file-input>
         `;
 
 class MessageTextarea extends HTMLElement {
@@ -31,9 +31,22 @@ class MessageTextarea extends HTMLElement {
     }
 
     _onKeyPress(event) {
-        console.log('button clicked!')
-        this._elements.button.dispatchEvent(new Event('messagesended'));
+        var textMessage = this._elements.textarea.value;
+        if (textMessage !== '') {
+            this.dispatchEvent(new CustomEvent('messagesended', {
+                detail: {
+                    message: this._elements.textarea.value
+                }
+            }));
+            this.clearTextArea();
+        }
+    }
+
+    clearTextArea() {
+        this._elements.textarea.value = '';
     }
 }
 
 customElements.define('message-textarea', MessageTextarea);
+
+export default MessageTextarea;
