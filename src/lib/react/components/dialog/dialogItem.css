@@ -1,0 +1,39 @@
+.dialog-item {
+    width: 100%;
+    max-height: 96px;
+    flex-direction: row;
+    padding: 0 16px;
+}
+
+.dialog-item-info-wrapper {
+    padding: 8px;
+    font-size: 16px;
+}
+
+.dialog-item-image-wrapper {
+    display: block;
+    flex: 0;
+    padding: 8px;
+    width: 72px;
+}
+
+.dialog-item-user-info-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-grow: 0.5;
+}
+
+.dialog-item-time {
+    margin-right: 16px;
+    font-size: 14px;
+    color: grey;
+    padding-bottom: 12px;
+    font-family: sans-serif;
+}
+
+.dialog-item-last-message {
+    font-size: 14px;
+    color: grey;
+    padding-bottom: 12px;
+    font-family: sans-serif;
+}

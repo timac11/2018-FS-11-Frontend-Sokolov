@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import Dialog from './dashboards/dialog/dialog';
 import './index.css';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+
+//dashboards
+import Dialog from './dashboards/dialog/dialog';
+import Chats from './dashboards/chats/chats';
 
 class App extends Component{
     constructor(props) {
@@ -18,6 +21,7 @@ class App extends Component{
             <Router>
                 <div>
                     <Route path='/dialog/:dialogId' component={Dialog}/>
+                    <Route path='/chats' component={Chats}/>
                 </div>
             </Router>
         )

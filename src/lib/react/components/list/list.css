@@ -1,0 +1,11 @@
+.list {
+    display: inline-flex;
+    background-color: white;
+    justify-content: flex-start;
+    overflow: auto;
+    flex-flow: column;
+    -webkit-flex: 1 1 auto;
+    align-items: flex-start;
+    min-height: min-content;
+    padding: 8px;
+}
