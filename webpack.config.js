@@ -7,7 +7,8 @@ module.exports = {
     entry: sourceRoot + '/app/index.js',         //entryPoint to app to begin bilding
     output: {
         filename: "main.js",                     //bundle path
-        path: path.resolve(__dirname, 'dist')    //bundle location
+        path: path.resolve(__dirname, 'dist'),   //bundle location
+        publicPath: '/',
     },
     module: {                                    //webpack understand only js and json files,
 	    rules: [                                 //for .css files you should add loader
@@ -44,7 +45,8 @@ module.exports = {
         extensions: ['*', '.js', '.jsx']
     },
     devServer: {
-        contentBase: './dist'
+        historyApiFallback: true,
+        contentBase: path.join(__dirname, 'dist'),
     },
     plugins: [
         new ExtractTextPlugin({
