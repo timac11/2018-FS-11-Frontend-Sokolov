@@ -3,6 +3,7 @@
     max-height: 96px;
     flex-direction: row;
     padding: 0 16px;
+    border-bottom: grey solid 1px;
 }
 
 .dialog-item-info-wrapper {
