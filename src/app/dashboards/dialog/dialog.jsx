@@ -4,6 +4,8 @@ import MessageWrapper from "../../../lib/react/components/message-wrapper/messag
 import Header from '../../../lib/react/components/header/header';
 
 
+import axios from 'axios';
+
 class Dialog extends Component{
     constructor(props) {
         super(props);
@@ -33,10 +35,18 @@ class Dialog extends Component{
         )
     }
 
+    //TODO: remove hardcoded url and add services to app
     sendButtonCallBack(message){
-        this.setState({
-            messages: this.state.messages.concat(message)
-        })
+        let formData = new FormData();
+        if (message.type !== 'text') {
+            formData.set('file', message.file)
+        } else {
+            formData.set('text', message.text)
+        }
+        axios.post('http://localhost:8081/api/message', formData)
+            .then(this.setState({
+                messages: this.state.messages.concat(message)
+            }))
     }
 
 }
