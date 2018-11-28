@@ -18,7 +18,7 @@ app.get('/health', (req, res) => {
     res.send('Hello world!');
 });
 
-app.listen(port);
-
-console.log(`app started in port ${port}`);
+app.listen(port, () => {
+    console.log(`Stub server started in port ${port}`);
+});
 
