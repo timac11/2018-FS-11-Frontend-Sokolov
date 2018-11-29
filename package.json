@@ -8,7 +8,8 @@
     "lint": "node ./node_modules/eslint/bin/eslint.js ./src/**/*.js",
     "serve": "webpack-dev-server --no-cache --config ./webpack.config.js --mode development",
     "build": "webpack --config ./webpack.config.js --mode development",
-    "watch": "webpack  --watch --config ./webpack.config.js --mode development"
+    "watch": "webpack  --watch --config ./webpack.config.js --mode development",
+    "stub-server": "node ./stub-server/stub-server.js"
   },
   "repository": {
     "type": "git",
@@ -37,9 +38,12 @@
     "webpack-dev-server": "^3.1.10"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.4",
+    "express-fileupload": "^1.0.0",
+    "prop-types": "latest",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
-    "prop-types": "latest",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1"
   }
