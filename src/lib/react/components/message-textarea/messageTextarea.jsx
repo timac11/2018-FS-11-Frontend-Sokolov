@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import FileInput from "./file-input/fileInput";
 import './messageTextarea.css';
-import PropTypes from 'prop-types';
 
 class MessageTextArea extends Component {
     constructor(props) {
@@ -54,10 +53,6 @@ class MessageTextArea extends Component {
             type: 'text'
         }
     }
-}
-
-MessageTextArea.propTypes = {
-    sendButtonCallback: PropTypes.func
 }
 
 export default MessageTextArea;

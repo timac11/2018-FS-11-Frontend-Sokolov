@@ -1,0 +1,17 @@
+{
+  "id": 1,
+  "messages": [
+    {
+      "id": 1,
+      "text": "SOme messages in this chat"
+    },
+    {
+      "id": 2,
+      "text": "SOme messages in this chat, SOme messages in this chat"
+    },
+    {
+      "id": 3,
+      "text": "SOme messages in this chat, SOme messages in this chat"
+    }
+  ]
+}

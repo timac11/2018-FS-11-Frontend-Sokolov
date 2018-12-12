@@ -4,6 +4,7 @@
     flex-direction: row;
     padding: 0 16px;
     border-bottom: rgba(128, 128, 128, 0.5) solid 1px;
+    cursor: pointer;
 }
 
 .dialog-item-info-wrapper {

@@ -2,18 +2,21 @@ import React, { Component } from 'react'
 import MessageTextArea from "../../../lib/react/components/message-textarea/messageTextarea";
 import MessageWrapper from "../../../lib/react/components/message-wrapper/messageWrapper";
 import Header from '../../../lib/react/components/header/header';
+import { connect } from 'react-redux';
+import * as chatActions from '../../store/actions/chat';
 
-
-import axios from 'axios';
 
 class Dialog extends Component{
     constructor(props) {
         super(props);
-        this.state = {
-            messages: []
-        }
     }
 
+    /**
+     * while chatId is hardcoded
+     */
+    componentDidMount() {
+        this.props.dispatch(chatActions.fetchChat(1));
+    }
 
     /**
      * while in render is used only one dashboard
@@ -21,7 +24,7 @@ class Dialog extends Component{
      * after adding others dashboards it will be moved
      */
     render() {
-        const { messages } = this.state;
+        const { messages } = this.props;
         return(
             <div>
                 <Header/>
@@ -35,7 +38,6 @@ class Dialog extends Component{
         )
     }
 
-    //TODO: remove hardcoded url and add services to app
     sendButtonCallBack(message){
         let formData = new FormData();
         if (message.type !== 'text') {
@@ -43,12 +45,16 @@ class Dialog extends Component{
         } else {
             formData.set('text', message.text)
         }
-        axios.post('http://localhost:8081/api/message', formData)
-            .then(this.setState({
-                messages: this.state.messages.concat(message)
-            }))
+        this.props.dispatch(chatActions.fetchMessage(message));
     }
-
 }
 
-export default Dialog;
+const mapStateToProps = state => {
+    return {
+        id: state.chat.id,
+        messages: state.chat.messages,
+    }
+};
+
+
+export default connect(mapStateToProps)(Dialog);
