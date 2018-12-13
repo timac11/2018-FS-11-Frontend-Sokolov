@@ -5,7 +5,6 @@ import Message from './../message/message'
 class MessageWrapper extends Component {
     constructor(props) {
         super(props);
-        //this.setState({messages: props.messages})
     }
 
     /**
@@ -27,7 +26,10 @@ class MessageWrapper extends Component {
 
     renderMessages (messages) {
         return messages.map(message => {
-            return <Message message={message} />
+            return <Message
+                key={message.id}
+                message={message}
+            />
         })
     }
 }

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Header from "../../../lib/react/components/header/header";
 import List from "../../../lib/react/components/list/list";
-
+import { connect } from 'react-redux';
+import * as chatsActions from '../../store/actions/chats';
 
 class Chats extends Component{
     constructor(props) {
@@ -13,6 +14,7 @@ class Chats extends Component{
          * to customize header to place here
          * messenger text instead of user name and photo
          */
+        const {chats} = this.props;
         return(
             <div>
                 <Header
@@ -21,11 +23,22 @@ class Chats extends Component{
                     searchButtonHidden={true}
                     avatarHidden={true}
                 />
-                <List/>
+                <List
+                    items={chats}
+                />
             </div>
         )
     }
 
+    componentDidMount() {
+        this.props.dispatch(chatsActions.fetchChats());
+    }
 }
 
-export default Chats;
+const mapStateToProps = state => {
+    return {
+        chats: state.chats.chats
+    }
+};
+
+export default connect(mapStateToProps)(Chats);

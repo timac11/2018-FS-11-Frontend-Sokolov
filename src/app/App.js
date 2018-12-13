@@ -19,10 +19,10 @@ class App extends Component{
     render() {
         return(
             <Router>
-                <div>
-                    <Route path='/dialog/:dialogId' component={Dialog}/>
-                    <Route path='/chats' component={Chats}/>
-                </div>
+                <Switch>
+                    <Route path='/chats/:chatId' component={Dialog}/>
+                    <Route exact path='/chats' component={Chats}/>
+                </Switch>
             </Router>
         )
     }

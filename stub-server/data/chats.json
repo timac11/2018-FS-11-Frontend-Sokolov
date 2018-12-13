@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "First Chat",
+    "time": 19,
+    "message": "Last Message content"
+  },
+  {
+    "id": 2,
+    "name": "Second Chat",
+    "time": 19,
+    "message": "Last Message content"
+  },
+  {
+    "id": 3,
+    "name": "Third Chat",
+    "time": 19,
+    "message": "Last Message content"
+  },
+  {
+    "id": 4,
+    "name": "Fourth Chat",
+    "time": 19,
+    "message": "Last Message content"
+  },
+  {
+    "id": 5,
+    "name": "Fifth Chat",
+    "time": 19,
+    "message": "Last Message content"
+  }
+]
