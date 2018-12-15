@@ -28,6 +28,13 @@ app.get('/health', (req, res) => {
     res.send('Hello world!');
 });
 
+app.post('/api/authorize', (req, res) => {
+    res.send({
+       userName: 'user',
+       token: 12345
+    });
+});
+
 app.listen(port, () => {
     console.log(`Stub server started in port ${port}`);
 });

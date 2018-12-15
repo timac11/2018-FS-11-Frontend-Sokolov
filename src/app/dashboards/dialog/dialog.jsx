@@ -4,6 +4,7 @@ import MessageWrapper from "../../../lib/react/components/message-wrapper/messag
 import Header from '../../../lib/react/components/header/header';
 import { connect } from 'react-redux';
 import * as chatActions from '../../store/actions/chat';
+import {Redirect} from "react-router-dom";
 
 
 class Dialog extends Component{
@@ -25,6 +26,12 @@ class Dialog extends Component{
      */
     render() {
         const { messages } = this.props;
+        let authRedirect = null;
+
+        if (!this.props.isAuthorized) {
+            authRedirect = <Redirect to="/login"/>
+        }
+
         return(
             <div>
                 <Header/>
@@ -34,6 +41,7 @@ class Dialog extends Component{
                 <MessageTextArea
                     sendButtonCallback={this.sendButtonCallBack.bind(this)}
                 />
+                {authRedirect}
             </div>
         )
     }
@@ -53,6 +61,7 @@ const mapStateToProps = state => {
     return {
         id: state.chat.id,
         messages: state.chat.messages,
+        isAuthorized: state.user.token !== null && state.user.token !== undefined
     }
 };
 

@@ -4,6 +4,7 @@
 
 export const USER_AUTHORIZED = 'USER_IS_AUTHORIZED';
 export const USER_UNAUTHORIZED = 'USER_UNAUTHORIZED';
+export const USER_IN_AUTHORIATION = 'USER_IN_AUTHORIZATION';
 
 /**
  *  CHAT actions
