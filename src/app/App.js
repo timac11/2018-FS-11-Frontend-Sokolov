@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 //dashboards
 import Dialog from './dashboards/dialog/dialog';
 import Chats from './dashboards/chats/chats';
+import Login from './dashboards/login/login';
 
 class App extends Component{
     constructor(props) {
@@ -22,6 +23,7 @@ class App extends Component{
                 <Switch>
                     <Route path='/chats/:chatId' component={Dialog}/>
                     <Route exact path='/chats' component={Chats}/>
+                    <Route exact path='/login' component={Login}/>
                 </Switch>
             </Router>
         )
