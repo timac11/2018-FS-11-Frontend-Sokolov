@@ -1,0 +1,78 @@
+.emoji-base {
+    box-shadow: 0 2px 2px 0;
+    background-color: #ffffff;
+    width: 250px;
+    height: 220px;
+    position: absolute;
+    right: 70px;
+    bottom: 72px;
+    z-index: 1000;
+    border-radius: 4px;
+    flex-direction: row;
+}
+
+.emoji {
+    width: 20px;
+    height: 20px;
+}
+
+.smiling {
+    background: url('../../../../resources/emoji/people/smiling-face.png?sprite');
+    background-size: 20px;
+}
+
+.blowing-a-kiss {
+    background: url('../../../../resources/emoji/people/face-blowing-a-kiss.png?sprite');
+    background-size: 20px;
+}
+
+.savoring-food {
+    background: url('../../../../resources/emoji/people/face-savoring-food.png?sprite');
+    background-size: 20px;
+}
+
+.screaming-in-fear {
+    background: url('../../../../resources/emoji/people/face-screaming-in-fear.png?sprite');
+    background-size: 20px;
+}
+
+.face-vomiting {
+    background: url('../../../../resources/emoji/people/face-vomiting.png?sprite');
+    background-size: 20px;
+}
+
+.face-with-hand {
+    background: url('../../../../resources/emoji/people/face-with-hand-over-mouth.png?sprite');
+    background-size: 20px;
+}
+
+.face-with-medical {
+    background: url('../../../../resources/emoji/people/face-with-medical-mask.png?sprite');
+    background-size: 20px;
+}
+
+.alien {
+    background: url('../../../../resources/emoji/people/alien.png?sprite');
+    background-size: 20px;
+}
+
+.boy {
+    background: url('../../../../resources/emoji/people/boy.png?sprite');
+    background-size: 20px;
+}
+
+.brain {
+    background: url('../../../../resources/emoji/people/brain.png?sprite');
+    background-size: 20px;
+}
+
+.child {
+    background: url('../../../../resources/emoji/people/child.png?sprite');
+    background-size: 20px;
+}
+
+.detective {
+    background: url('../../../../resources/emoji/people/detective.png?sprite');
+    background-size: 20px;
+}
+

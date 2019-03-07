@@ -13,8 +13,10 @@ const Message = (props) => {
 }
 
 const TextMessage = (props) => {
-    return (
-        <div>{props.text}</div>
+    const divEl = document.createElement('div');
+    return(
+        <div
+    dangerouslySetInnerHTML={{__html: props.text}}/>
     )
 }
 

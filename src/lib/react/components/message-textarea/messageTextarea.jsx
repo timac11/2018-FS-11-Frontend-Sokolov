@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
-import FileInput from "./file-input/fileInput";
+import ReactDOM from 'react-dom';
+import FileInput from './file-input/fileInput'
+import Emoji from '../emoji/emoji'
 import './messageTextarea.css';
 
 class MessageTextArea extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            textAreaValue: ''
+            html: '',
+            emojiShow: false
         }
     }
 
@@ -14,14 +17,27 @@ class MessageTextArea extends Component {
         const { sendButtonCallBack } = this.props;
         return (
             <div className="message-textarea">
-                <textarea className="textarea"
-                          value={this.state.textAreaValue}
-                          placeholder="Message"
-                          onChange={this.handleTextAreaChange.bind(this)}
+                <div className="textarea"
+                     placeholder="Message"
+                     contentEditable="true"
+                     dangerouslySetInnerHTML={{__html: this.state.html}}
+                     ref='textarea'
                 />
                 <button className="send-button"
-                        onClick={this.sendButtonClick.bind(this)}>Send
+                        onClick={this.sendButtonClick.bind(this)}>
+                    Send
                 </button>
+                <button className="send-button" onClick={() => {
+                    this.setState((state) => ({
+                        emojiShow: !state.emojiShow
+                    }));
+                }}>
+                    Emoji
+                </button>
+                <Emoji
+                    emojiShow={this.state.emojiShow}
+                    emojiClick={this.addEmoji.bind(this)}
+                />
                 <FileInput
                     fileUploadButtonCallback={this.props.sendButtonCallback}
                 />
@@ -29,21 +45,33 @@ class MessageTextArea extends Component {
         )
     }
 
+    addEmoji(emojiKey) {
+        let textArea = ReactDOM.findDOMNode(this);
+        let textInner = textArea.querySelector('.textarea');
+        const emojiclass = emojiKey + ' emoji';
+        textInner.innerHTML = textInner.innerHTML + '<img class="' + emojiclass + '"/>'
+    }
+
     handleTextAreaChange(event) {
         this.setState({textAreaValue: event.target.value});
     }
 
     sendButtonClick() {
-        const text = this.state.textAreaValue;
+        let text = this.state.textAreaValue;
+
+        let textArea = ReactDOM.findDOMNode(this);
+        let textInner = textArea.querySelector('.textarea');
+        text = textInner.innerHTML;
+
         const message = this.createTextMessage(text);
 
         if (text !== '') {
 
             this.props.sendButtonCallback(message);
 
-            this.setState({
+            /*this.setState({
                 textAreaValue: ''
-            });
+            });*/
         }
     }
 

@@ -2,6 +2,7 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const sourceRoot = path.resolve(__dirname, 'src');
+const CSSSpritePlugin = require('css-sprite-loader').Plugin;
 
 module.exports = {
     entry: sourceRoot + '/app/index.js',         //entryPoint to app to begin bilding
@@ -19,15 +20,19 @@ module.exports = {
             },
             {
                 test: /\.css$/,
+                use: ['style-loader', 'css-loader', 'css-sprite-loader']
+            },
+            /*{
+                test: /\.css$/,
                 loader: 'style-loader'
             }, {
                 test: /\.css$/,
                 loader: 'css-loader',
-                /*query: {
+                /!*query: {
                     modules: true,
                     localIdentName: '[name]__[local]___[hash:base64:5]'
-                }*/
-            },
+                }*!/
+            },*/
             /*{
                 test: /index\.css$/,
                 include: sourceRoot,
@@ -49,6 +54,9 @@ module.exports = {
         contentBase: path.join(__dirname, 'dist'),
     },
     plugins: [
+        new CSSSpritePlugin({
+            output: './icons'
+        }),
         new ExtractTextPlugin({
             filename: 'index.css'
         }),
