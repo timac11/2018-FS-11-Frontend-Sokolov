@@ -38,7 +38,13 @@ module.exports = {
                 use: {
                     loader: 'url-loader'
                 }
-            }
+            },
+            {
+                test: /\.worker\.js$/,
+                use: {
+                    loader: 'worker-loader'
+                }
+            },
         ],
     },
     resolve: {

@@ -5,7 +5,7 @@ import Header from '../../../lib/react/components/header/header';
 import { connect } from 'react-redux';
 import * as chatActions from '../../store/actions/chat';
 import {Redirect} from "react-router-dom";
-
+import getSharedWorker from '../../worker/sharedWorkerUtil';
 
 class Dialog extends Component{
     constructor(props) {
@@ -16,7 +16,17 @@ class Dialog extends Component{
      * while chatId is hardcoded
      */
     componentDidMount() {
-        this.props.dispatch(chatActions.fetchChat(1));
+        getSharedWorker().then((worker) => {
+            worker.port.addEventListener('message', this.getChatFromWorker.bind(this));
+            worker.port.start();
+            worker.port.postMessage({type: 'getChat'});
+        });
+    }
+
+    getChatFromWorker(event) {
+        if(event.data.type === 'chat') {
+            this.props.dispatch(chatActions.chatSet(event.data.data))
+        }
     }
 
     /**

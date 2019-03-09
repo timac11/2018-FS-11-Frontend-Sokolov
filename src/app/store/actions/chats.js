@@ -9,14 +9,12 @@ export const chatsSet = (chats) => {
     }
 };
 
-
 export const  chatsAddChat = (chat) => {
     return {
         type: actionTypes.CHATS_ADD_CHAT,
         val: chat
     }
 };
-
 
 export const fetchChats = () => {
     return (dispatch) => {
