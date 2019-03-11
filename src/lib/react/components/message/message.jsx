@@ -10,27 +10,25 @@ const Message = (props) => {
             {createInfoContent.bind(this)(props.message)}
         </div>
     )
-}
+};
 
 const TextMessage = (props) => {
-    const divEl = document.createElement('div');
     return(
-        <div
-    dangerouslySetInnerHTML={{__html: props.text}}/>
+        <div style={{display: 'block'}} dangerouslySetInnerHTML={{__html: props.text}}/>
     )
-}
+};
 
 const DocumentMessage = (props) => {
     return (
         <a href={props.href}>{props.fileName}</a>
     )
-}
+};
 
 const ImageMessage = (props) => {
     return (
         <img src={props.imagePath}/>
     )
-}
+};
 
 const createInfoContent = (message) => {
     const time = [
@@ -53,7 +51,7 @@ const createInfoContent = (message) => {
             </div>
         )
     }
-}
+};
 
 const createMessageContent = (message) => {
     const imagePattern = /^image\.*/;
@@ -83,6 +81,6 @@ const createMessageContent = (message) => {
             />
         )
     }
-}
+};
 
 export default Message;

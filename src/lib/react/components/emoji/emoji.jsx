@@ -12,12 +12,21 @@ class Emoji extends Component{
 
 
     render() {
-        const emojiShow = this.props.emojiShow;
+        const emojiShow = this.state.emojiShow;
         const style = emojiShow ? {display: 'flex'} : {display: 'none'};
         return (
-            <div className='emoji-base' style={style}>
-                {this.renderEmojis.bind(this)()}
-            </div>
+            <span>
+                <button className="send-button" onClick={() => {
+                    this.setState((state) => ({
+                        emojiShow: !state.emojiShow
+                    }));
+                }}>
+                    Emoji
+                </button>
+                <div className='emoji-base' style={style}>
+                    {this.renderEmojis.bind(this)()}
+                </div>
+            </span>
         )
     }
 
@@ -26,7 +35,13 @@ class Emoji extends Component{
             return <span
                 key={emoji}
                 className={emoji.concat(' emoji')}
-                onClick={() => this.props.emojiClick(emoji)}
+                onClick={() => {
+                        this.props.emojiClick(emoji);
+                        this.setState({
+                            emojiShow: false
+                        });
+                    }
+                }
             />
         })
     }
@@ -45,9 +60,5 @@ const emojiArray = [
     'child',
     'detective'
 ];
-
-const itemClick = (props) => {
-    props.history.push('/chats/' + props.id);
-};
 
 export default Emoji;

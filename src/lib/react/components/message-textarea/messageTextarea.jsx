@@ -27,13 +27,6 @@ class MessageTextArea extends Component {
                         onClick={this.sendButtonClick.bind(this)}>
                     Send
                 </button>
-                <button className="send-button" onClick={() => {
-                    this.setState((state) => ({
-                        emojiShow: !state.emojiShow
-                    }));
-                }}>
-                    Emoji
-                </button>
                 <Emoji
                     emojiShow={this.state.emojiShow}
                     emojiClick={this.addEmoji.bind(this)}
@@ -68,6 +61,7 @@ class MessageTextArea extends Component {
         if (text !== '') {
 
             this.props.sendButtonCallback(message);
+            textInner.innerHTML = '';
 
             /*this.setState({
                 textAreaValue: ''
