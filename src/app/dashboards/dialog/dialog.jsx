@@ -5,18 +5,41 @@ import Header from '../../../lib/react/components/header/header';
 import { connect } from 'react-redux';
 import * as chatActions from '../../store/actions/chat';
 import {Redirect} from "react-router-dom";
-
+import getSharedWorker from '../../worker/sharedWorkerUtil';
 
 class Dialog extends Component{
     constructor(props) {
         super(props);
+        this.state = {
+            worker: null
+        }
     }
 
     /**
      * while chatId is hardcoded
      */
     componentDidMount() {
-        this.props.dispatch(chatActions.fetchChat(1));
+        getSharedWorker().then((worker) => {
+            if (!this.state.worker) {
+                this.state.worker = worker;
+                this.state.worker.port.addEventListener('message', this.getChatFromWorker.bind(this));
+                this.state.worker.port.addEventListener('message', this.addMessageFromWorker.bind(this));
+                this.state.worker.port.start();
+                this.state.worker.port.postMessage({type: 'getChat', chatId: 1});
+            }
+        });
+    }
+
+    getChatFromWorker(event) {
+        if(event.data.type === 'chat') {
+            this.props.dispatch(chatActions.chatSet(event.data.data));
+        }
+    }
+
+    addMessageFromWorker(event) {
+        if(event.data.type === 'message') {
+            this.props.dispatch(chatActions.chatAddMessage(event.data.data));
+        }
     }
 
     /**
@@ -29,7 +52,7 @@ class Dialog extends Component{
         let authRedirect = null;
 
         if (!this.props.isAuthorized) {
-            authRedirect = <Redirect to="/login"/>
+            authRedirect = <Redirect to="/login"/>;
         }
 
         return(
@@ -49,11 +72,11 @@ class Dialog extends Component{
     sendButtonCallBack(message){
         let formData = new FormData();
         if (message.type !== 'text') {
-            formData.set('file', message.file)
+            formData.set('file', message.file);
         } else {
-            formData.set('text', message.text)
+            formData.set('text', message.text);
         }
-        this.props.dispatch(chatActions.fetchMessage(message));
+        this.state.worker.port.postMessage({type: 'addMessage', message: message, chatId: 1});
     }
 }
 

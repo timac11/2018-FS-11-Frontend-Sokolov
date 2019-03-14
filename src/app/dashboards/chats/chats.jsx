@@ -4,6 +4,7 @@ import List from "../../../lib/react/components/list/list";
 import { connect } from 'react-redux';
 import * as chatsActions from '../../store/actions/chats';
 import { Redirect } from 'react-router-dom';
+import getSharedWorker from '../../worker/sharedWorkerUtil';
 
 class Chats extends Component{
     constructor(props) {
@@ -40,7 +41,17 @@ class Chats extends Component{
     }
 
     componentDidMount() {
-        this.props.dispatch(chatsActions.fetchChats());
+        getSharedWorker().then((worker) => {
+            worker.port.addEventListener('message', this.getChatsFromWorker.bind(this));
+            worker.port.start();
+            worker.port.postMessage({type: 'getChats'});
+        });
+    }
+
+    getChatsFromWorker(event) {
+        if(event.data.type === 'chats') {
+            this.props.dispatch(chatsActions.chatsSet(event.data.data))
+        }
     }
 }
 
