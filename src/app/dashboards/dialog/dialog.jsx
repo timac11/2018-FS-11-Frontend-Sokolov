@@ -31,7 +31,6 @@ class Dialog extends Component{
     }
 
     addMessageFromWorker(event) {
-        debugger
         if(event.data.type === 'message') {
             this.props.dispatch(chatActions.chatAddMessage(event.data.data));
         }
