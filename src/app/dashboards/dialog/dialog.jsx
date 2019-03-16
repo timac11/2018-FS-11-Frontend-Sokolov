@@ -12,13 +12,7 @@ class Dialog extends Component{
         super(props);
         this.state = {
             worker: null
-        }
-    }
-
-    /**
-     * while chatId is hardcoded
-     */
-    componentDidMount() {
+        };
         getSharedWorker().then((worker) => {
             if (!this.state.worker) {
                 this.state.worker = worker;
@@ -37,6 +31,7 @@ class Dialog extends Component{
     }
 
     addMessageFromWorker(event) {
+        debugger
         if(event.data.type === 'message') {
             this.props.dispatch(chatActions.chatAddMessage(event.data.data));
         }

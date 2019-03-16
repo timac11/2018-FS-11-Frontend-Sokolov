@@ -14,7 +14,6 @@ class MessageTextArea extends Component {
     }
 
     render() {
-        const { sendButtonCallBack } = this.props;
         return (
             <div className="message-textarea">
                 <div className="textarea"
@@ -45,27 +44,16 @@ class MessageTextArea extends Component {
         textInner.innerHTML = textInner.innerHTML + '<img class="' + emojiclass + '"/>'
     }
 
-    handleTextAreaChange(event) {
-        this.setState({textAreaValue: event.target.value});
-    }
-
     sendButtonClick() {
-        let text = this.state.textAreaValue;
-
         let textArea = ReactDOM.findDOMNode(this);
         let textInner = textArea.querySelector('.textarea');
-        text = textInner.innerHTML;
+        let text = textInner.innerHTML;
 
         const message = this.createTextMessage(text);
 
         if (text !== '') {
-
             this.props.sendButtonCallback(message);
             textInner.innerHTML = '';
-
-            /*this.setState({
-                textAreaValue: ''
-            });*/
         }
     }
 
