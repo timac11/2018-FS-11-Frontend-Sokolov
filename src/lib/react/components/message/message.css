@@ -13,6 +13,11 @@
     flex-grow: 0;
 }
 
+.sended-body-message-new {
+    animation-duration: 1.5s;
+    animation-name: appear;
+}
+
 .message-info-block {
     display: block;
     margin-top: 6px;
@@ -29,4 +34,14 @@
     float: right;
     font-size: 10px;
     color: #8e24aa;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }

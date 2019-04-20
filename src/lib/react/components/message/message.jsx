@@ -4,8 +4,9 @@ import './../../../utils/readable-size-util'
 import {getReadableSize} from "../../../utils/readable-size-util";
 
 const Message = (props) => {
+    const cssClass = props.message.new ? 'sended-body-message sended-body-message-new' : 'sended-body-message';
     return (
-        <div className='sended-body-message'>
+        <div className={cssClass}>
             {createMessageContent.bind(this)(props.message)}
             {createInfoContent.bind(this)(props.message)}
         </div>

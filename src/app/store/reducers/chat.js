@@ -17,9 +17,12 @@ const reducer = (state = initialState, action) => {
                 users: val.users
             });
         case actionTypes.CHAT_ADD_MESSAGE:
-            return updateObject(state, {
-                messages: state.messages.concat(val)
-            });
+            if (val) {
+                val.new = true;
+                return updateObject(state, {
+                    messages: state.messages.concat(val)
+                });
+            }
     }
     return state;
 };

@@ -12,7 +12,8 @@ export const chatSet = (chat) => {
 export const chatAddMessage = (message) => {
     return {
         type: actionTypes.CHAT_ADD_MESSAGE,
-        val: message
+        val: message,
+        new: true
     }
 };
 
