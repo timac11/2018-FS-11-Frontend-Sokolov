@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
-import './fileInput.css'
-import PropTypes from "prop-types";
+import React from 'react';
+import { Component } from 'react';
+import './fileInput.css';
+import PropTypes from 'prop-types';
 
 class FileInput extends Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class FileInput extends Component {
                 <button className="upload-btn">File</button>
                 <input onChange={this.fileInputChanged.bind(this)} type="file"/>
             </div>
-        )
+        );
     }
 
     fileInputChanged(e) {
@@ -22,13 +23,13 @@ class FileInput extends Component {
             this.props.fileUploadButtonCallback({
                 file: file,
                 size: file.size
-            })
+            });
         }
     }
 }
 
 FileInput.propTypes = {
     fileUploadButtonCallback: PropTypes.func
-}
+};
 
 export default FileInput;

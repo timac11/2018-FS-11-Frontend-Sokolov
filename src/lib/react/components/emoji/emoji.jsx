@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
-import './emoji.css'
+import React from 'react';
+import { Component } from 'react';
+import './emoji.css';
 
 class Emoji extends Component{
     constructor(props) {
@@ -7,7 +8,7 @@ class Emoji extends Component{
         this.state = {
             emojiShow: props.emojiShow,
             emojiClick: props.emojiClick
-        }
+        };
     }
 
 
@@ -27,23 +28,25 @@ class Emoji extends Component{
                     {this.renderEmojis.bind(this)()}
                 </div>
             </span>
-        )
+        );
     }
 
     renderEmojis () {
         return emojiArray.map((emoji) => {
-            return <span
-                key={emoji}
-                className={emoji.concat(' emoji')}
-                onClick={() => {
+            return (
+                <span
+                    key={emoji}
+                    className={emoji.concat(' emoji')}
+                    onClick={() => {
                         this.props.emojiClick(emoji);
                         this.setState({
                             emojiShow: false
                         });
                     }
-                }
-            />
-        })
+                    }
+                />
+            );
+        });
     }
 }
 

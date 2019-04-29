@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import './header.css';
 
 const Header = (props) => {
-    const {actionButtonHidden, searchButtonHidden, avatarHidden} = props;
+    const {actionButtonHidden, searchButtonHidden} = props;
     return (
         <div className="header">
             <button className="arrow-back-icon" onClick={backHistory}/>
@@ -13,12 +13,12 @@ const Header = (props) => {
                 <button className="actions-icon" hidden={actionButtonHidden}><i></i></button>
             </div>
         </div>
-    )
-}
+    );
+};
 
 const backHistory = () => {
     window.history.back();
-}
+};
 
 const renderUserImage = (props) => {
     const avatarHidden = props.avatarHidden;
@@ -26,8 +26,8 @@ const renderUserImage = (props) => {
         <div className="user-img-wrapper">
             <img className="user-img" src="../resources/img/1.png"/>
         </div>
-    )
-}
+    );
+};
 
 //TODO remove hardcoded values
 const renderBaseHeaderContent = (props) => {
@@ -41,7 +41,7 @@ const renderBaseHeaderContent = (props) => {
             <span className="name-wrapper">Jenifer</span>
             <span className="user-online-info ">online 2 hours ago</span>
         </div>
-    )
-}
+    );
+};
 
 export default Header;

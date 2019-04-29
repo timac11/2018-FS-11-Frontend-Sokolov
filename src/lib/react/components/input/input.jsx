@@ -24,9 +24,8 @@ const input = props => {
                 onChange={props.changed}
                 {...props.elementConfig}
             />;
-            break;
+                break;
     }
-
 
     return (
         <div className='input'>

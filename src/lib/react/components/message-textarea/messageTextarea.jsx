@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react';
+import { Component } from 'react';
 import ReactDOM from 'react-dom';
-import FileInput from './file-input/fileInput'
-import Emoji from '../emoji/emoji'
+import FileInput from './file-input/fileInput';
+import Emoji from '../emoji/emoji';
 import './messageTextarea.css';
 
 class MessageTextArea extends Component {
@@ -10,20 +11,22 @@ class MessageTextArea extends Component {
         this.state = {
             html: '',
             emojiShow: false
-        }
+        };
     }
 
     render() {
         return (
             <div className="message-textarea">
-                <div className="textarea"
-                     placeholder="Message"
-                     contentEditable="true"
-                     dangerouslySetInnerHTML={{__html: this.state.html}}
-                     ref='textarea'
+                <div
+                    className="textarea"
+                    placeholder="Message"
+                    contentEditable="true"
+                    dangerouslySetInnerHTML={{__html: this.state.html}}
+                    ref='textarea'
                 />
-                <button className="send-button"
-                        onClick={this.sendButtonClick.bind(this)}>
+                <button
+                    className="send-button"
+                    onClick={this.sendButtonClick.bind(this)}>
                     Send
                 </button>
                 <Emoji
@@ -34,14 +37,14 @@ class MessageTextArea extends Component {
                     fileUploadButtonCallback={this.props.sendButtonCallback}
                 />
             </div>
-        )
+        );
     }
 
     addEmoji(emojiKey) {
         let textArea = ReactDOM.findDOMNode(this);
         let textInner = textArea.querySelector('.textarea');
         const emojiclass = emojiKey + ' emoji';
-        textInner.innerHTML = textInner.innerHTML + '<img class="' + emojiclass + '"/>'
+        textInner.innerHTML = textInner.innerHTML + '<img class="' + emojiclass + '"/>';
     }
 
     sendButtonClick() {
@@ -61,7 +64,7 @@ class MessageTextArea extends Component {
         return {
             text: text,
             type: 'text'
-        }
+        };
     }
 }
 

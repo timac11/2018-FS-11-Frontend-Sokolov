@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Component } from 'react';
 import './messageWrapper.css';
-import Message from './../message/message'
+import Message from './../message/message';
 
 class MessageWrapper extends Component {
     constructor(props) {
@@ -21,16 +22,18 @@ class MessageWrapper extends Component {
                     {this.renderMessages(messages)}
                 </div>
             </div>
-        )
+        );
     }
 
     renderMessages (messages) {
         return messages.map(message => {
-            return <Message
-                key={message.id}
-                message={message}
-            />
-        })
+            return (
+                <Message
+                    key={message.id}
+                    message={message}
+                />
+            );
+        });
     }
 }
 

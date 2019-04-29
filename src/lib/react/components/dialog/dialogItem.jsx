@@ -1,10 +1,10 @@
 import React from 'react';
-import './dialogItem.css'
-import { withRouter } from 'react-router-dom'
+import './dialogItem.css';
+import { withRouter } from 'react-router-dom';
 
 const DialogItem = (props) => {
     return (
-        <div className='dialog-item' onClick={() => {itemClick(props)}}>
+        <div className='dialog-item' onClick={() => {itemClick(props);}}>
             <div className="dialog-item-image-wrapper">
                 <img className="user-img" src="../resources/img/1.png"/>
             </div>
@@ -16,7 +16,7 @@ const DialogItem = (props) => {
                 <div className="dialog-item-last-message">{props.message}</div>
             </div>
         </div>
-    )
+    );
 };
 
 const itemClick = (props) => {
